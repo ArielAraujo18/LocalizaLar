@@ -1,0 +1,40 @@
+.sidebar-content-principal{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    max-width: 250px;
+    background-color: white;
+
+}
+
+.sidebar-content-title{
+    border: 1px solid red;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sidebar-content-title h1,span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4rem;
+}
+
+.sidebar-content-title span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.8rem;
+}
+
+.sidebar-content-content{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sidebar-content-footer{
+    border: 1px solid red;
+}
+
+.sidebar-content-exit{
+    border: 1px solid red;
+}
