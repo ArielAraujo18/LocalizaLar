@@ -38,3 +38,17 @@
 .sidebar-content-exit{
     border: 1px solid red;
 }
+
+.sidebar-content{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+}
+    .sidebar-content.active{
+    transform: translateX(0);
+    }

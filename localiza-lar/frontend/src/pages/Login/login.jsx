@@ -2,6 +2,8 @@ import "./login.css"
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 
+/*************  ✨ Windsurf Command ⭐  *************/
+/*******  a4976484-40a6-4e96-88fc-2e1e9d58de9c  *******/
 function Login(){
 
     const [setUser] = useState(null);
@@ -75,7 +77,7 @@ function Login(){
                     <button>Sign in</button>
                     <a href="">Forgot password?</a>
                     <Link to={"/cadastrar"}>
-                    <a href="">Need an account? Sign up</a>
+                        Need an account? Sign up
                     </Link>
                 </section>
             </section>

@@ -1,34 +1,20 @@
 import './Sidebar.css';
+import { Link } from "react-router-dom";
 
 function Sidebar(){
     return(
         <section className='sidebar-content-principal'>
-            <section className='sidebar-content-title'>
-                <img src="" alt="" />
-                <h1>LocalizaLar</h1>
-                <span>Encontre o seu lar</span>
-                <hr />
+            <section className='sidebar-content'>
+                <button className='sidebar-content-botao' onClick={() => {
+                    document.querySelector('.sidebar-content').classList.toggle('active');
+                }}>
+                    <img src="https://cdn-icons-png.flaticon.com/512/561/561134.png" alt="icone de menu" />
+                </button>
             </section>
-
-            <section className='sidebar-content-content'>
-                <a href="">Início</a>
-                <a href="">Imóvies</a>
-                <a href="">Encontrar colegas</a>
-                <a href="">Meu perfil</a>
+            <section className="sidebar-content active">
+                <Link to="/login">Login</Link>
+                <Link to="/cadastro">Cadastro</Link>
             </section>
-
-
-            <section className='sidebar-content-footer'>
-                <hr />
-                <img src="" alt="" />
-                <h1>USER</h1>
-                <span>Email</span>
-            </section>
-
-            <section className='sidebar-content-exit'>
-                <a href="">Sair</a>
-            </section>
-
         </section>
     )
 };
