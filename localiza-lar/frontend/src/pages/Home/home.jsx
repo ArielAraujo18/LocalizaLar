@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Home() {
-  const [user] = useState(() => {
+  const [user, setUser] = useState(() => {
     const data = localStorage.getItem("user");
     return data ? JSON.parse(data) : null;
   });

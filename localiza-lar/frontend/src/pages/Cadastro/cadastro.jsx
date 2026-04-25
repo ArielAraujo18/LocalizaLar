@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 
 function Cadastro() {
   return (
-    <section className="flex justify-center items-center min-h-[100dvh] p-2">
-      <section className="bg-white w-full max-w-[360px] md:max-w-[400px] p-3 md:p-8 h-full rounded-[20px]">
+    <div className="flex justify-center items-center min-h-[100dvh] p-2">
+      <div className="bg-white w-full max-w-[360px] md:max-w-[400px] p-3 md:p-8 h-full rounded-[20px]">
 
-        <section className="ml-4 mt-4">
+        <div className="ml-4 mt-4">
           <Link to="/" className="no-underline text-slate-600 hover:underline">
             &#11013; Back to sign in
           </Link>
-        </section>
+        </div>
 
-        <section className="flex flex-col justify-center items-center p-4">
+        <div className="flex flex-col justify-center items-center p-4">
           <span className="text-[1.3rem] font-semibold font-sans">
             Create your account
           </span>
-        </section>
+        </div>
 
-        <section className="flex flex-col items-center gap-2 mb-4">
+        <div className="flex flex-col items-center gap-2 mb-4">
           <span>Email</span>
           <input
             type="text"
@@ -41,9 +41,9 @@ function Cadastro() {
             className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
             bg-[url('https://cdn-icons-png.flaticon.com/512/3064/3064155.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
           />
-        </section>
+        </div>
 
-        <section className="flex flex-col items-center my-4">
+        <div className="flex flex-col items-center my-4">
           <button
             className="bg-pink-500 hover:bg-pink-400 transition duration-200
             text-white text-[1.1rem] font-medium cursor-pointer
@@ -52,10 +52,10 @@ function Cadastro() {
           >
             Create account
           </button>
-        </section>
+        </div>
 
-      </section>
-    </section>
+      </div>
+    </div>
   );
 }
 
