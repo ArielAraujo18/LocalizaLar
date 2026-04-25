@@ -2,11 +2,9 @@ import "./login.css"
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/*******  a4976484-40a6-4e96-88fc-2e1e9d58de9c  *******/
 function Login(){
 
-    const [setUser] = useState(null);
+    const [user, setUser] = useState(null);
 
     function handleGoogleLogin(response){
         fetch("http://localhost:3001/auth/google", {

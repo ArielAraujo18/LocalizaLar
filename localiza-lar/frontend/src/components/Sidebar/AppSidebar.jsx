@@ -1,4 +1,3 @@
-import "./Sidebar.css";
 import {
   Sidebar,
   SidebarContent,
@@ -7,17 +6,30 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar";
 
-function AppSidebar() {
+export default function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <div className="p-4 font-bold">
+          <img src="" alt="" />
+          <span className="font-bold">LocalizaLar</span>
+          </div>
+      </SidebarHeader>
+
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <SidebarGroup>
+          <button className="w-full text-left p-2 hover:bg-muted">
+            Home
+          </button>
+          <button className="w-full text-left p-2 hover:bg-muted">
+            Perfil
+          </button>
+        </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+
+      <SidebarFooter>
+        <button className="p-2 w-full text-left">Sair</button>
+      </SidebarFooter>
     </Sidebar>
   );
 }
-
-export default AppSidebar;
