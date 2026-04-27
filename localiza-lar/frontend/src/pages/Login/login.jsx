@@ -36,6 +36,16 @@ function Login() {
         );
     },);
 
+    const logando = () => {
+        const user ={
+            name: "Teste",
+            email: "hZd6A@example.com",
+            picture: "https://loremflickr.com/150/150/penguin",
+        };
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "/home";
+    };
+
     console.log("CLIENT:", import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
     return (
@@ -100,7 +110,7 @@ function Login() {
                         className="bg-pink-500 hover:bg-pink-400 transition duration-200
                     text-white w-full max-w-[330px] py-4 rounded-full
                     border border-gray-300 flex items-center justify-center"
-                    >
+                    onClick= {logando}>
                         Sign in
                     </button>
 

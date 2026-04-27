@@ -53,6 +53,7 @@ export default function AppSidebar() {
 
       <SidebarFooter>
         <div className="flex flex-col m-1 bg-pink-100 p-2 rounded-[10px]">
+          <img src={user.picture} className="w-8 h-8 object-contain"/>
           <span>{user.name}</span>
           <span>{user.email}</span>
         </div>
