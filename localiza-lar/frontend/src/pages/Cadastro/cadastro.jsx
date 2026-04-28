@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
 function Cadastro() {
+
+  const signup = () => {
+
+  }
+  
   return (
     <div className="flex justify-center items-center min-h-[100dvh] p-2">
       <div className="bg-white w-full max-w-[360px] md:max-w-[400px] p-3 md:p-8 h-full rounded-[20px]">
