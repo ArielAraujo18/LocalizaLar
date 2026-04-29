@@ -9,12 +9,8 @@ const userSchema = new moongose.Schema({
     password: {
         type: String,
         required: true,
-        unique: true,
-    },
-    timestamps: {
-        timestamps: true,
     }
-});
+    }, { timestamps: true });
 
 const UserModel = moongose.model('User', userSchema);
 

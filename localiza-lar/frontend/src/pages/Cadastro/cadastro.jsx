@@ -1,11 +1,30 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";  
 
 function Cadastro() {
+ 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const signup = () => {
+  const handleSubmit = async () => {
+    if (password !== confirmPassword){
+      alert("Senhas não conferem");
+      return;
+    }
 
-  }
-  
+    try {
+      const response = await axios.post("http://localhost:3001/user/users", {
+        email,
+        password,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-[100dvh] p-2">
       <div className="bg-white w-full max-w-[360px] md:max-w-[400px] p-3 md:p-8 h-full rounded-[20px]">
@@ -26,6 +45,8 @@ function Cadastro() {
           <span>Email</span>
           <input
             type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
             bg-[url('https://cdn-icons-png.flaticon.com/512/561/561127.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
@@ -34,6 +55,8 @@ function Cadastro() {
           <span>Password</span>
           <input
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
             bg-[url('https://cdn-icons-png.flaticon.com/512/3064/3064155.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
@@ -42,6 +65,8 @@ function Cadastro() {
           <span>Confirm Password</span>
           <input
             type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Re-enter password"
             className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
             bg-[url('https://cdn-icons-png.flaticon.com/512/3064/3064155.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
@@ -49,7 +74,7 @@ function Cadastro() {
         </div>
 
         <div className="flex flex-col items-center my-4">
-          <button
+          <button onClick={() => handleSubmit()}
             className="bg-pink-500 hover:bg-pink-400 transition duration-200
             text-white text-[1.1rem] font-medium cursor-pointer
             w-full max-w-[330px] py-4 rounded-full border border-gray-300

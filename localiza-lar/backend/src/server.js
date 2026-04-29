@@ -4,6 +4,8 @@ const cors = require('cors');
 const connect = require('./services/connectionMongo');
 
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/modules');
+
 //const mongoRoutes = require('./')
 const app = express();
 
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
 
 async function start() {
     try{
@@ -20,8 +23,6 @@ async function start() {
         });
     } catch (err) {
         console.error(err);
-        console.log(process.env.MONGODB_USERNAME);
-        console.log(process.env.MONGODB_PASSWORD);
     }
 }
 
