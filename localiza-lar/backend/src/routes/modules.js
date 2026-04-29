@@ -25,6 +25,7 @@ router.post("/users", async (req, res) => {
     res.status(201).json(user);
   } catch (err) {
     res.status(500).json({ error: err.message });
+    console.log(err);
   }
 });
 

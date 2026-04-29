@@ -23,6 +23,9 @@ function Cadastro() {
     } catch (error) {
       console.error(error);
     }
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
