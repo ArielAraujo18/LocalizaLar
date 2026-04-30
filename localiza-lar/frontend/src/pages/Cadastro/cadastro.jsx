@@ -3,6 +3,7 @@
   import axios from "axios";  
   import { useNavigate } from "react-router-dom";
 
+
   function Cadastro() {
   
     const [email, setEmail] = useState("");
@@ -10,8 +11,22 @@
     const [confirmPassword, setConfirmPassword] = useState("");
     const navigate = useNavigate();
 
+    const isValidEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
 
     const register = async () => {
+      
+      if (!email || !password || !confirmPassword) {
+        alert("Preencha todos os campos");
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        alert("Email inválido");
+        return;
+      }
+
       if (password !== confirmPassword){
         alert("Senhas não conferem");
         return;
