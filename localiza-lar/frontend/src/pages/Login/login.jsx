@@ -1,11 +1,38 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";  
 
 function Login() {
 
     const [user, setUser] = useState(null);
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState("");
 
-    function handleGoogleLogin(response) {
+    const getRandomPicture = () => {
+        return `https://loremflickr.com/150/150/penguin?random=${Math.random()}`;
+    };
+
+    const loginCredenciais = async () => {
+        if(email === "" || password === "") {
+            alert("Preencha todos os campos");
+            return;
+        }
+
+        try {
+            const response = await axios.post("http://localhost:3001/login", {
+                email,
+                password,
+                picture: getRandomPicture(),
+            });
+            console.log(response.data);
+            localStorage.setItem("user", JSON.stringify(response.data));
+            window.location.href = "/home";
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function loginGoogle(response) {
         fetch("http://localhost:3001/auth/google", {
             method: "POST",
             headers: {
@@ -22,13 +49,12 @@ function Login() {
                 console.log(user);
                 setUser(user);
             });
-
     }
 
     useEffect(() => {
-        window.google.accounts.id.initialize({
+        if(window.google.accounts.id.initialize)({
             client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-            callback: handleGoogleLogin,
+            callback: loginGoogle,
         });
         window.google.accounts.id.renderButton(
             document.getElementById("googleBtn"),
@@ -36,7 +62,7 @@ function Login() {
         );
     },);
     
-
+    /* 
     const logando = () => {
         const user ={
             name: "Teste",
@@ -46,6 +72,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(user));
         window.location.href = "/home";
     };
+    */
 
     console.log("CLIENT:", import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
@@ -91,6 +118,8 @@ function Login() {
                     <input
                         type="email"
                         placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
                     bg-[url('https://cdn-icons-png.flaticon.com/512/561/561127.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
                     />
@@ -99,6 +128,8 @@ function Login() {
                     <input
                         type="password"
                         placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         className="w-full max-w-[300px] pl-10 pr-4 py-3 border border-gray-300 rounded-lg text-base
                     bg-[url('https://cdn-icons-png.flaticon.com/512/3064/3064155.png')] bg-no-repeat bg-[length:18px] bg-[10px_center]"
                     />
@@ -108,10 +139,9 @@ function Login() {
                 <div className="flex flex-col items-center mt-4 gap-4">
 
                     <button
-                        className="bg-pink-500 hover:bg-pink-400 transition duration-200
+                    onClick= {loginCredenciais}className="bg-pink-500 hover:bg-pink-400 transition duration-200
                     text-white w-full max-w-[330px] py-4 rounded-full
-                    border border-gray-300 flex items-center justify-center"
-                    onClick= {logando}>
+                    border border-gray-300 flex items-center justify-center">
                         Sign in
                     </button>
 
